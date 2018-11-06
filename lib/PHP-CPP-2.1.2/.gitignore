@@ -1,0 +1,8 @@
+*.o
+*.a
+*.so
+*.txt
+*.a.*
+*.so.*
+shared/
+static/
