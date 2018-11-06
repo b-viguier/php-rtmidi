@@ -1,3 +1,4 @@
 src/*.o
+lib/rtmidi-3.0.0/*.o
 rtmidi.ini
 rtmidi.so

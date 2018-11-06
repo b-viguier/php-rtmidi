@@ -82,9 +82,9 @@ LINKER              =   g++
 #   with a list of all flags that should be passed to the linker.
 #
 
-COMPILER_FLAGS      =   -Wall -c -O2 -std=c++11 -fpic -o
+COMPILER_FLAGS      =   -D__MACOSX_CORE__ -I./lib/rtmidi-3.0.0 -Wall -c -O2 -std=c++11 -fpic -o
 LINKER_FLAGS        =   -shared
-LINKER_DEPENDENCIES =   -lphpcpp
+LINKER_DEPENDENCIES =   -lphpcpp -framework CoreMidi -framework CoreAudio -framework CoreFoundation
 
 #
 #   Command to remove files, copy files and create directories.
@@ -105,7 +105,7 @@ MKDIR               =   mkdir -p
 #   file, with the .cpp extension being replaced by .o.
 #
 
-SOURCES = $(wildcard src/*.cpp)
+SOURCES = $(wildcard src/*.cpp) $(wildcard lib/rtmidi-3.0.0/*.cpp)
 OBJECTS = $(SOURCES:%.cpp=%.o)
 
 #

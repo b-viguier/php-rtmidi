@@ -14,5 +14,18 @@ cd lib/PHP-CPP-2.1.2
 make -j
 make install
 ```
-Use `make uninstall` if you want to remove it.
 
+Then, go back to the project root directory, compile and install this extension:
+```bash
+cd ../..
+make -j
+make install
+```
+
+In both cases, use `make uninstall` to remove installed files,
+and `make clean` to delete temporary files created during build process.
+
+
+## Usage
+
+See official [RtMidi documentation](https://www.music.mcgill.ca/~gary/rtmidi/index.html).

@@ -1,8 +1,6 @@
 #include <phpcpp.h>
+#include "PhpRtMidi.h"
 
-/**
- *  tell the compiler that the get_module is a pure C function
- */
 extern "C" {
 
 /**
@@ -18,7 +16,7 @@ PHPCPP_EXPORT void *get_module()
     // for the entire duration of the process (that's why it's static)
     static Php::Extension extension("rtmidi", "1.0");
 
-    // @todo    add your own functions, classes, namespaces to the extension
+    PhpRtMidi::phpExport(extension);
 
     // return the extension
     return extension;
