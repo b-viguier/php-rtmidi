@@ -1,5 +1,5 @@
 #include "PhpRtMidi.h"
-#include "../lib/rtmidi-3.0.0/RtMidi.h"
+#include <RtMidi.h>
 
 void PhpRtMidi::phpExport(Php::Extension &extension) {
     Php::Class <PhpRtMidi> phpClass("RtMidi");

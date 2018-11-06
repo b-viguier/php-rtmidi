@@ -1,7 +1,6 @@
 #ifndef PHP_RTMIDI_H
 #define PHP_RTMIDI_H
 
-#include <RtMidi.h>
 #include <phpcpp.h>
 
 class PhpRtMidi : public Php::Base {
