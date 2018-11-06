@@ -1,0 +1,6 @@
+# Php-RtMidi
+
+A Php extension for [MIDI](https://www.midi.org/) programming 🎶.
+
+This extension is a wrapper over [RtMidi library](https://github.com/thestk/rtmidi)
+using [Php-Cpp](https://github.com/CopernicaMarketingSoftware/PHP-CPP).
