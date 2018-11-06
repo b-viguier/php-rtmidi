@@ -12,6 +12,12 @@ void PhpRtMidi::phpExport(Php::Extension &extension) {
     phpClass.add(Php::Constant("RTMIDI_DUMMY", RtMidi::RTMIDI_DUMMY));
 
     phpClass.method<&PhpRtMidi::getVersion>("getVersion");
+    phpClass.method<&PhpRtMidi::getCompiledApi>(
+            "getCompiledApi",
+            {
+                    Php::ByRef("apis", Php::Type::Array, true)
+            }
+    );
 
 
     extension.add(std::move(phpClass));
@@ -19,4 +25,12 @@ void PhpRtMidi::phpExport(Php::Extension &extension) {
 
 Php::Value PhpRtMidi::getVersion() {
     return RtMidi::getVersion();
+}
+
+void PhpRtMidi::getCompiledApi(Php::Parameters &params) {
+    Php::Value array = params[0];
+    std::vector <RtMidi::Api> apis;
+    RtMidi::getCompiledApi(apis);
+    array = apis;
+    params[0] = array;
 }

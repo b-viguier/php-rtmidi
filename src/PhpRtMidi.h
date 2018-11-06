@@ -10,6 +10,8 @@ public:
 
     static Php::Value getVersion();
 
+    static void getCompiledApi(Php::Parameters &params);
+
 protected:
     PhpRtMidi() = default;
 };
