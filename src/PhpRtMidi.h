@@ -4,10 +4,11 @@
 #include <RtMidi.h>
 #include <phpcpp.h>
 
-class PhpRtMidi : public Php::Base
-{
+class PhpRtMidi : public Php::Base {
 public:
     static void phpExport(Php::Extension &extension);
+
+    static Php::Value getVersion();
 
 protected:
     PhpRtMidi() = default;

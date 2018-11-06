@@ -1,9 +1,8 @@
 #include "PhpRtMidi.h"
 #include "../lib/rtmidi-3.0.0/RtMidi.h"
 
-void PhpRtMidi::phpExport(Php::Extension &extension)
-{
-    Php::Class<PhpRtMidi> phpClass("RtMidi");
+void PhpRtMidi::phpExport(Php::Extension &extension) {
+    Php::Class <PhpRtMidi> phpClass("RtMidi");
 
     phpClass.add(Php::Constant("UNSPECIFIED", RtMidi::UNSPECIFIED));
     phpClass.add(Php::Constant("MACOSX_CORE", RtMidi::MACOSX_CORE));
@@ -12,6 +11,12 @@ void PhpRtMidi::phpExport(Php::Extension &extension)
     phpClass.add(Php::Constant("WINDOWS_MM", RtMidi::WINDOWS_MM));
     phpClass.add(Php::Constant("RTMIDI_DUMMY", RtMidi::RTMIDI_DUMMY));
 
+    phpClass.method<&PhpRtMidi::getVersion>("getVersion");
+
 
     extension.add(std::move(phpClass));
+}
+
+Php::Value PhpRtMidi::getVersion() {
+    return RtMidi::getVersion();
 }
