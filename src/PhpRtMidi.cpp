@@ -1,7 +1,7 @@
 #include "PhpRtMidi.h"
 #include <RtMidi.h>
 
-void PhpRtMidi::phpExport(Php::Extension &extension) {
+Php::Class <PhpRtMidi> &&PhpRtMidi::phpExport(Php::Extension &extension) {
     Php::Class <PhpRtMidi> phpClass("RtMidi");
 
     phpClass.add(Php::Constant("UNSPECIFIED", RtMidi::UNSPECIFIED));
@@ -19,8 +19,9 @@ void PhpRtMidi::phpExport(Php::Extension &extension) {
             }
     );
 
+    extension.add(phpClass);
 
-    extension.add(std::move(phpClass));
+    return std::move(phpClass);
 }
 
 Php::Value PhpRtMidi::getVersion() {

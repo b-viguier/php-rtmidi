@@ -5,7 +5,7 @@
 
 class PhpRtMidi : public Php::Base {
 public:
-    static void phpExport(Php::Extension &extension);
+    static Php::Class <PhpRtMidi>&& phpExport(Php::Extension &extension);
 
     static Php::Value getVersion();
 

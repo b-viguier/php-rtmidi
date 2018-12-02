@@ -1,5 +1,6 @@
 #include <phpcpp.h>
 #include "PhpRtMidi.h"
+#include "PhpRtMidiIn.h"
 
 extern "C" {
 
@@ -16,7 +17,8 @@ PHPCPP_EXPORT void *get_module()
     // for the entire duration of the process (that's why it's static)
     static Php::Extension extension("rtmidi", "1.0");
 
-    PhpRtMidi::phpExport(extension);
+    auto baseClass = PhpRtMidi::phpExport(extension);
+    PhpRtMidiIn::phpExport(extension, baseClass);
 
     // return the extension
     return extension;
